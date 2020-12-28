@@ -11,4 +11,4 @@ app.listen(3000);
 console.log('La aplicacion esta escuchando en http://localhost:3000');
 
 // Otra forma de hacerlo
-//app.use('/', (req1,res1) => res1.send('fff');
+//app.use('/', (req1,res1) => res1.send('fff'); 

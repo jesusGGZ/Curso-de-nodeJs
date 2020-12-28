@@ -1,0 +1,19 @@
+{
+  "name": "backendnode",
+  "version": "0.1.0",
+  "description": "Una chat como telegram pero mejor",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "telegram",
+    "nodejs"
+  ],
+  "author": "Jesus Antonio Garcia Zurita",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

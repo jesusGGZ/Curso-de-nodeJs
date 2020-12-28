@@ -5,15 +5,15 @@ const controller = require('./controller');
 const router = express.Router();
 
 router.get('/', function (req, res) {
-    // Incluir cabecera
-    console.log(req.headers);
-    // Mandar cabecera personalizada al cliente
-    res.header({
-        "custom-header": "Nuestro valor personalizado"
-    })
-
-    //res.send('Lista de mensajes');
-    response.success(req, res, 'Lista de mensajes');
+    // toma la lista completa de mensajes
+    controller.getMessages()
+        .then((messageList) => {
+            response.success(req, res, messageList, 200);
+        })
+        // Si hay algun error muesta un mensaje de error 500 
+        .catch( e => {
+            response.error(req, res, 'Unexpected Error', 500, e);
+        })
 });
 
 router.post('/', function (req, res) {

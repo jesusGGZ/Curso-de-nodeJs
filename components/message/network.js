@@ -23,6 +23,7 @@ router.post('/', function (req, res) {
         response.success(req, res, fullMessage, 201);
     })
     .catch(e => {
+        // console.log('[Error] ', e);
         response.error(req, res, 'Informacion invalida', 400,
         'Error en el controlador');
     });

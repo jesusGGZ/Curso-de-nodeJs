@@ -26,6 +26,12 @@ router.post('/message', function (req, res) {
     res.send('Mensaje ' + req.body.text +' añadido correctamente');
 });
 
+router.delete('/message', function (req, res) {
+    console.log(req.body);
+    console.log(req.query);
+    res.status(201).send([{error:'', body: 'Creado correctamente'}]);
+});
+
 app.listen(3000);
 console.log('La aplicacion esta escuchando en http://localhost:3000');
 

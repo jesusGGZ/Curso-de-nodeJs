@@ -9,6 +9,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(router);
 
 router.get('/message', function (req, res) {
+    // Incluir cabecera
+    console.log(req.headers);
+    // Mandar cabecera personalizada al cliente
+    res.header({
+        "custom-header": "Nuestro valor personalizado"
+    })
+
     res.send('Lista de mensajes');
 });
 

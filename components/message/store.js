@@ -1,13 +1,20 @@
 const db = require('mongoose');
-const model = require('./model');
+const Model = require('./model');
+
+const user = 'jesus';
+const pass = 'jesus123';
+const host = 'cluster0.hgjmo.mongodb.net';
+const database = 'cursoNode';
+const uri = 'mongodb+srv://jesus:jesus123@cluster0.hgjmo.mongodb.net/cursoNode?retryWrites=true&w=majority';
 
 db.Promise = global.Promise;
 // Conexion a DB en mongo DB
-db.connect('mongodb+srv://jesus:jesus123@cluster0.hgjmo.mongodb.net/cursoNode?retryWrites=true&w=majority',{
-    useNewUrlParser: true,
-});
-console.log('[db] Conectada con éxito');
-
+db.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true, dbName: database})
+    .then(() =>{
+        console.log('[db] Conectada con éxito');
+    }).catch( error => {
+        console.error('[db] Error de conexion', error.message);
+    });
 // Se agrega un mensaje a la lista
 function addMessage(message) {
     // list.push(message);

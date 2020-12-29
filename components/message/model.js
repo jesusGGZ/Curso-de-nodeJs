@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const message = new Schema({
+const mySchema = new Schema({
     user: String,
     message: {
         type: String,
@@ -10,5 +10,5 @@ const message = new Schema({
     date: Date,
 });
 
-const model = mongoose.model('message', message);
+const model = mongoose.model('Message', mySchema);
 module.exports = model;

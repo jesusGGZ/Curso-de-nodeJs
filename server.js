@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const db =require('./db');
+db('mongodb+srv://jesus:jesus123@cluster0.hgjmo.mongodb.net/cursoNode?retryWrites=true&w=majority');
+
 // const router = require('./components/message/network');
 const router = require('./network/routers')
 

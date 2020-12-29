@@ -24,10 +24,14 @@ function addMessage(message) {
     myMessage.save();
 }
 
-// Retorna la lista de mensajes
-async function getMessages() {
-    // return list;
-    const messages = await Model.find();
+// Retorna la lista de los mensajes de los usuarios sion especificar 
+// o especificando de que usuario o usuarios.
+async function getMessages(filterUser) {
+    let filter = {}
+    if (filterUser !== null) {
+        filter = { user: filterUser};
+    }
+    const messages = await Model.find(filter);
     return messages;
 }
 

@@ -5,8 +5,10 @@ const controller = require('./controller');
 const router = express.Router();
 
 router.get('/', function (req, res) {
+    // filtra los mensajes mediante id de usuario
+    const filterMessages = req.query.user || null;
     // toma la lista completa de mensajes
-    controller.getMessages()
+    controller.getMessages(filterMessages)
         .then((messageList) => {
             response.success(req, res, messageList, 200);
         })

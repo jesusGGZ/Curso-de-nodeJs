@@ -19,10 +19,10 @@ function addMessage(user, message) {
         resolve(fullMessage);
     });
 }
-// Toma la lista completa de mensajes
-function getMessages() {
+// Toma la lista completa de mensajes y los id de usuario
+function getMessages(filterUser) {
     return new Promise((resolve, reject) => {
-        resolve(store.list());
+        resolve(store.list(filterUser));
     })
 }
 

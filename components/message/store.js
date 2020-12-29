@@ -1,3 +1,4 @@
+const { populate } = require('./model');
 const Model = require('./model');
 
 // Se agrega un mensaje a la lista
@@ -12,12 +13,21 @@ function addMessage(message) {
 // Retorna la lista de los mensajes de los usuarios sion especificar 
 // o especificando de que usuario o usuarios.
 async function getMessages(filterUser) {
-    let filter = {}
+    return new Promise((resolve, reject) => {
+        let filter = {}
     if (filterUser !== null) {
         filter = { user: filterUser};
     }
-    const messages = await Model.find(filter);
-    return messages;
+    Model.find(filter)
+    .populate('user')
+    .exec((error, populated) => {
+        if (error) {
+            reject(error);
+            return false;
+        }
+        resolve(populated);
+    });
+    })
 }
 
 function removeMessage(id) {

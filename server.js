@@ -6,7 +6,6 @@ const config = require('./config');
 
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const socket = require('./socket');
 const db =require('./db');
 // const router = require('./components/message/network');
 const router = require('./network/routers')
@@ -20,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(router);
 
-socket.connect(server);
+app.connect(server);
 router(app);
 
 // acceso a los archivos de public
